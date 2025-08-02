@@ -17,8 +17,23 @@
     .transition {
       transition: all ease-in-out;
     }
+    
     .borderr {
       border: 3px solid plum;
+    }
+    .nav-tabs {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-tabs .nav-link {
+      white-space: nowrap;
+    }
+
+    .nav-tabs::-webkit-scrollbar {
+      display: none;
     }
   </style>
 </head>
