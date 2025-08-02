@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merugu Akhila</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  <style>
+    .justify-text {
+      text-align: justify;
+    }
+    .background {
+      background: linear-gradient(rgb(241, 242, 242), rgb(241, 215, 241));
+    }
+    .transition {
+      transition: all ease-in-out;
+    }
+    .borderr {
+      border: 3px solid plum;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="card-header d-flex justify-content-center align-items-center background">
+      <div>
+        <h1><b>Merugu Akhila</b></h1>
+        <h5>-Full Stack Web Developer</h5>
+      </div>
+      <img src="pic.jpg" class="rounded-circle img-thumbnail mt-3" height="200px" width="200px" />
+    </div>
+
+    <div class="card-body">
+      <ul class="nav nav-tabs justify-content-center my-4" id="portfolioTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="about-tab" data-bs-toggle="tab" data-bs-target="#about" type="button" role="tab" aria-controls="about" aria-selected="true">
+            About
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="education-tab" data-bs-toggle="tab" data-bs-target="#education" type="button" role="tab" aria-controls="education" aria-selected="false">
+            Education
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects" type="button" role="tab" aria-controls="projects" aria-selected="false">
+            Projects
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="internship-tab" data-bs-toggle="tab" data-bs-target="#internship" type="button" role="tab" aria-controls="internship" aria-selected="false">
+            Internship
+          </button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">
+            Contact
+          </button>
+        </li>
+      </ul>
+
+      <div class="tab-content p-3">
+        
+        <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="about-tab">
+          <div class="d-flex justify-content-center">
+            <div class="card p-3 w-auto shadow-lg mb-3 borderr animate__animated animate__fadeInLeft">
+              <h2>About Me</h2>
+              <p class="justify-text">
+                I'm a Computer Science and Engineering graduate (2023) with a strong foundation in software development and a growing passion for building robust and scalable full-stack web applications. During my Full Stack Development internship at Cognifyz, I had the opportunity to work on real-time projects that deepened my knowledge in both frontend and backend technologies.
+              </p>
+              <p class="justify-text">
+                I’ve gained hands-on experience using:
+                <ul>
+                  <li>Node.js and Express for server-side development</li>
+                  <li>MySQL for relational database management</li>
+                  <li>HTML, CSS, JavaScript, and Bootstrap for building responsive, interactive user interfaces</li>
+                </ul>
+              </p>
+              <p class="justify-text">
+                Throughout my projects, I’ve implemented features like user authentication using JWT, RESTful API development, and client-server communication using Fetch API, ensuring both performance and security.
+              </p>
+              <p class="justify-text">
+                What drives me is a desire to solve real-world problems through technology. I enjoy working in collaborative environments and continuously learning new tools and frameworks to stay up-to-date in the fast-evolving tech world. I'm currently seeking opportunities where I can contribute to innovative projects, learn from experienced professionals, and continue growing as a Full Stack Developer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="tab-pane fade" id="education" role="tabpanel" aria-labelledby="education-tab">
+          <h2 class="mb-3 text-center">🎓 Education</h2>
+
+          <div class="d-flex justify-content-center">
+            <div class="card p-3 shadow-lg mb-3 borderr animate__animated animate__fadeInLeft" style="width: 600px;">
+              <h5 class="mb-1">B.Tech in Computer Science</h5>
+              <p class="mb-1"><strong>Malla Reddy Institute of Engineering and Technology</strong></p>
+              <p class="mb-1">Jawaharlal Nehru Technological University, Hyderabad</p>
+              <p class="mb-1">CGPA: 8.2 / 10</p>
+              <p class="mb-0">Graduated: 2023</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <div class="card p-3 shadow-lg mb-3 borderr animate__animated animate__fadeInLeft " style="width: 600px;">
+              <h5 class="mb-1">Intermediate (MPC)</h5>
+              <p class="mb-1"><strong>Prathibha Junior College</strong></p>
+              <p class="mb-0">TS Intermediate Board – 98.2% (2019)</p>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-center">
+            <div class="card p-3 shadow-lg borderr animate__animated animate__fadeInLeft" style="width: 600px;">
+              <h5 class="mb-1">SSC</h5>
+              <p class="mb-1"><strong>Tetra Hedron Residential School</strong></p>
+              <p class="mb-0">TS SSC Board – 98% (2017)</p>
+            </div>
+          </div>
+        </div>
+
+       
+        <div class="tab-pane fade" id="projects" role="tabpanel" aria-labelledby="projects-tab">
+          <h2 class="text-center">Projects</h2>
+
+          <div class="d-flex justify-content-center">
+            <div class="card p-3 w-auto shadow-lg mb-3 borderr animate__animated animate__fadeInLeft">
+              <h5>AgriAdvnZ – The New Era of Agriculture</h5>
+              <p>Developed a full-stack web app to educate users on advanced farming technologies.</p>
+              <ul>
+                <li>Implemented user registration, login, and JWT-based authentication</li>
+                <li>Designed responsive UI with EJS templates and Bootstrap</li>
+                <li>Created modules on AI irrigation, drone fertilizing, and robotic harvesting</li>
+                <li>Used MySQL to manage user and content data</li>
+              </ul>
+              <p>GitHub: <a href="https://github.com/AkhilaM-21/AgriAdvanZ">AgriAdvanZ</a></p>
+              <p>Tech Stack:
+                <ul>
+                  <li>Frontend: EJS, HTML5, CSS3, Bootstrap 5, JavaScript</li>
+                  <li>Backend: Node.js, Express.js</li>
+                  <li>Database: MySQL</li>
+                </ul>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" id="internship" role="tabpanel" aria-labelledby="internship-tab">
+          <h2 class="text-center">Internship</h2>
+
+          <div class="d-flex justify-content-center">
+            <div class="card p-3 w-auto shadow-lg borderr animate__animated animate__fadeInLeft">
+              <h5>Full Stack Developer Intern – Cognifyz Technologies</h5>
+              <p><strong>Duration:</strong> 1 Month</p>
+              <ul>
+                <li>Worked on real-time projects involving Node.js, Express, MySQL, and Bootstrap</li>
+                <li>Built secure authentication modules using JWT</li>
+                <li>Designed dynamic EJS-based interfaces and integrated them with server routes</li>
+                <li>Practiced Git workflows and API testing using Postman</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+          <div class="d-flex justify-content-center">
+            <div class="card p-3 d-inline-block w-auto shadow-lg mb-3 borderr animate__animated animate__fadeInLeft">
+              <h2 class="mb-3">📞 Contact</h2>
+              <p>You can reach out to me through the details below:</p>
+              <div class="mb-3">
+                <p><strong>Email:</strong> <a href="mailto:merugu.akhila21@gmail.com">merugu.akhila21@gmail.com</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+917013159811">+91 70131 59811</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/AkhilaM-21" target="_blank">github.com/AkhilaM-21</a></p>
+                <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/akhila-m21" target="_blank">linkedin.com/in/akhila-m21</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div> 
+    </div> 
+  </div> 
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
