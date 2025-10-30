@@ -11,27 +11,55 @@
 
   <style>
     body {
-      background-color: #f8f9fa;
+      background: linear-gradient(45deg, #fdfbfb, #ebedee);
       cursor: none; /* Hide the default cursor */
+      overflow-x: hidden; /* Prevent horizontal scroll from shapes */
     }
     a, button {
       cursor: none; /* Hide cursor for interactive elements too */
     }
     .hero-section {
-      padding: 2rem 0;
+      padding: 6rem 0;
     }
-    .video-container {
-      border-radius: 0.5rem;
-      overflow: hidden;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      border: 3px solid plum;
+    .shape {
+      position: absolute;
+      background-color:#F4D6F5;
+      border-radius: 50%;
+      opacity: 0.5;
+      filter: blur(5px);
+      animation: float 25s infinite ease-in-out;
+      z-index: -1; /* Position behind content */
+    }
+    .shape-1 { width: 150px; height: 150px; top: 10%; left: 15%; animation-delay: 0s; }
+    .shape-2 { width: 50px; height: 50px; top: 25%; left: 60%; animation-delay: 3s; }
+    .shape-3 { width: 100px; height: 100px; top: 65%; left: 75%; animation-delay: 6s; }
+    .shape-4 { width: 180px; height: 180px; top: 50%; left: 10%; animation-delay: 9s; }
+    .shape-5 { width: 70px; height: 70px; top: 80%; left: 40%; animation-delay: 12s; }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) translateX(0px) scale(1);
+      }
+      25% {
+        transform: translateY(-30px) translateX(25px) scale(1.05);
+      }
+      50% {
+        transform: translateY(20px) translateX(-30px) scale(1);
+      }
+      75% {
+        transform: translateY(-25px) translateX(15px) scale(0.95);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+      }
     }
     .typing-container {
       display: flex;
       flex-direction: column;
       justify-content: center;
       height: 100%;
-      padding-left: 2rem;
+      text-align: center;
+      
     }
     .typing-text {
       font-family: 'Courier New', Courier, monospace;
@@ -71,7 +99,7 @@
     }
     .nav-tabs .nav-link.active {
       color: #495057;
-      background-color: #fff;
+      background-color: transparent; /* Make active tab transparent */
       border-color: #dee2e6 #dee2e6 #fff;
       border-bottom: 3px solid plum !important;
     }
@@ -168,6 +196,7 @@
       left: 50%;
     }
     .left::before {
+    
       content: " ";
       height: 0;
       position: absolute;
@@ -252,7 +281,15 @@
   </style>
 </head>
 <body>
+  <!-- Animated Shapes Background -->
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+  <div class="shape shape-4"></div>
+  <div class="shape shape-5"></div>
+
   <div class="container mt-4">
+    
     <!-- Navigation Tabs -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
@@ -271,14 +308,9 @@
       <!-- Home Tab -->
       <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
         <section class="hero-section">
-          <div class="row align-items-center g-4">
-            <div class="col-md-6">
-              <div class="video-container">
-                <video src="akhila.mp4" autoplay loop muted playsinline width="100%"></video>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="typing-container">
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="typing-container ">
                 <h1 id="name-text" class="display-5 fw-bold typing-text">Merugu Akhila</h1>
                 <p id="role-text" class="lead typing-text fs-4">- Full Stack Web Developer</p>
                 <div class="mt-4"><button class="btn btn-outline-plum" onclick="showAboutTab()">About Me <i class="bi bi-arrow-right"></i></button></div>
@@ -311,10 +343,11 @@
                 <h5>STC Employee Portal – Internal Management System</h5>
                 <p>Engineered a full-stack internal portal to streamline employee management, communication, and data tracking.</p>
                 <ul>
-                  <li>Engineered a secure authentication system using JSON Web Tokens (JWT).</li>
-                  <li>Developed a comprehensive attendance module with role-based views.</li>
-                  <li>Integrated a real-time chat feature using Socket.IO.</li>
-                  <li>Architected a NoSQL database schema with MongoDB.</li>
+                  <li>Developed a multi-faceted attendance system with role-based reports, Google Sheets integration, and automated report generation.</li>
+                  <li>Enhanced the real-time chat with channel and direct messaging, file sharing, message reactions, and a persistent notification system.</li>
+                  <li>Implemented a unified authentication system and a comprehensive admin panel for user management, including profile editing and password resets.</li>
+                  <li>Enhanced role-based access control (RBAC) to customize portal card visibility and implemented an automated announcement system with scheduled posts and birthday notifications.</li>
+                  <li>Designed and integrated a scalable MongoDB backend for all features and successfully deployed the full-stack application on Vercel.</li>
                 </ul>
                 <div class="mt-auto pt-3">
                   <p class="mb-2"><b><i class="bi bi-code-slash"></i> Tech Stack:</b></p>
