@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Merugu Akhila</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+
+  <style>
+    body {
+      background: linear-gradient(45deg, #fdfbfb, #ebedee);
+      cursor: none; /* Hide the default cursor */
+      overflow-x: hidden; /* Prevent horizontal scroll from shapes */
+      position: relative; /* Needed for avatar icon positioning */
+    }
+    a, button {
+      cursor: none; /* Hide cursor for interactive elements too */
+    }
+    .hero-section {
+      padding: 6rem 0;
+    }
+    .shape {
+      position: absolute;
+      background-color:#F4D6F5;
+      border-radius: 50%;
+      opacity: 0.5;
+      filter: blur(5px);
+      animation: float 25s infinite ease-in-out;
+      z-index: -1; /* Position behind content */
+    }
+    /* Hide shapes when on the works page */
+    body.works-active .shape {
+      display: none;
+    }
+
+    .shape-1 { width: 150px; height: 150px; top: 10%; left: 15%; animation-delay: 0s; }
+    .shape-2 { width: 50px; height: 50px; top: 25%; left: 60%; animation-delay: 3s; }
+    .shape-3 { width: 100px; height: 100px; top: 65%; left: 75%; animation-delay: 6s; }
+    .shape-4 { width: 180px; height: 180px; top: 50%; left: 10%; animation-delay: 9s; }
+    .shape-5 { width: 70px; height: 70px; top: 80%; left: 40%; animation-delay: 12s; }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) translateX(0px) scale(1);
+      }
+      25% {
+        transform: translateY(-30px) translateX(25px) scale(1.05);
+      }
+      50% {
+        transform: translateY(20px) translateX(-30px) scale(1);
+      }
+      75% {
+        transform: translateY(-25px) translateX(15px) scale(0.95);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+      }
+    }
+    .typing-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;      
+    }
+    /* Align text to left on larger screens */
+    .typing-container { text-align: left; }
+    .typing-text {
+      font-family: 'Courier New', Courier, monospace;
+      color: #333;
+      border-right: 0.15em solid plum; /* The cursor */
+      white-space: nowrap;
+      overflow: hidden;
+      animation: typing 2s steps(30, end), blink-caret .75s step-end infinite;
+    }
+    #role-text {
+      animation-delay: 2s; /* Start after name finishes */
+      animation-name: typing-role;
+      animation-duration: 3s;
+      visibility: hidden; /* Hide until animation starts */
+      animation-fill-mode: forwards;
+    }
+
+    /* Typing effect */
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes typing-role {
+      from { width: 0; visibility: visible; }
+      to { width: 100%; visibility: visible; }
+    }
+
+    /* The typewriter cursor effect */
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: plum; }
+    }
+
+    .nav-tabs .nav-link {
+      color: plum;
+      font-weight: 500;
+    }
+    .nav-tabs .nav-link.active {
+      color: #495057;
+      background-color: transparent; /* Make active tab transparent */
+      border-color: #dee2e6 #dee2e6 #fff;
+      border-bottom: 3px solid plum !important;
+    }
+    .borderr {
+      border: 2px solid plum;
+    }
+    .tab-content {
+      height: calc(100vh - 100px); /* Adjust based on nav height */
+      overflow-y: auto;
+      overflow-y: scroll;
+      overflow-x: hidden;
+      scrollbar-width: none; /* For Firefox */
+    }
+    .tab-content::-webkit-scrollbar {
+      display: none; /* Hide scrollbar in Chrome/Safari/Edge */
+    }
+    .tech-badge {
+      background-color: #e5d9f2 !important; /* A lighter shade of plum */
+    }
+    .skill-card {
+      border: 1px solid #e0e0e0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+    .skill-logo-container {
+      transition: transform 0.3s ease;
+      opacity: 0; /* Initially hide the skill logos */
+    }
+    .skill-logo-container:hover {
+      transform: scale(1.1);
+    }
+    .skill-logo-container i {
+      font-size: 4rem;
+      color: plum;
+      transition: color 0.3s ease; /* Smooth color transition for the icon */
+    }
+    .skill-logo-container:hover {
+      background-color: #f0f0f0; /* Subtle background change on hover */
+      border-radius: 0.5rem; /* Add some rounded corners to the hover effect */
+    }
+    .start-floating {
+      animation: gentle-float 4s ease-in-out infinite;
+    }
+    .education-card {
+      border-left: 4px solid plum;
+    }
+    .btn-outline-plum {
+      color: plum;
+      border-color: plum;
+    }
+    .btn-outline-plum:hover {
+      color: white;
+      background-color: plum;
+    }
+    .social-icon i {
+      font-size: 1.75rem;
+      color: plum;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+    .social-icon:hover i {
+      transform: scale(1.2); /* Make hover effect a bit more pronounced */
+    }
+    
+    hr.plum-line {
+        border-top: 2px solid plum;
+        opacity: 1;
+    }
+    /* --- Timeline Styles --- */
+    .timeline {
+      position: relative;
+      max-width: 1200px; /* Increased width for the timeline container */
+      margin: 0 auto;
+    }
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background-color: plum;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1.5px;
+    }
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+      opacity: 0; /* Initially hidden for animation */
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      right: -10px;
+      background-color: white;
+      border: 4px solid plum;
+      top: 25px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+    .left {
+      left: 0;
+    }
+    .right {
+      left: 50%;
+    }
+    .left::before {
+    
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 28px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid white;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 28px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+    .right::after {
+      left: -10px;
+    }
+    .timeline-content {
+      position: relative;
+    }
+    .timeline-item .card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .timeline-item .card:hover {
+      transform: scale(1.03); /* Slightly enlarge the card on hover */
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15) !important; /* Enhance the shadow on hover */
+      z-index: 10;
+    }
+
+    /* --- Responsive Timeline for Mobile --- */
+    @media screen and (max-width: 768px) {
+      .timeline::after {
+        left: 31px; /* Move the line to the left */
+      }
+      .timeline-item {
+        width: 100%;
+        padding-left: 65px;
+        padding-right: 25px;
+      }
+      /* Make all arrows point left */
+      .timeline-item::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+      /* Position all items on the right side of the line */
+      .left, .right {
+        left: 0%;
+      }
+      /* Position all circles on the line */
+      .left::after, .right::after {
+        left: 21px;
+      }
+      .animation-wrapper, .animation-placeholder {
+        display: none; /* Hide animation on mobile to save space and performance */
+      }
+    }
+    .animation-wrapper {
+      height: 100%;
+      min-height: 450px; /* Ensure it has a minimum height */
+      position: relative;
+    }
+    /* --- Custom Cursor Trail --- */
+    .trail {
+      position: fixed;
+      height: 12px;
+      width: 12px;
+      border-radius: 50%;
+      background: plum;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      opacity: 0;
+    }
+
+    /* --- Avatar and Floating Icons --- */
+    .avatar-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 300px; /* Ensure container has height */
+    }
+    .avatar-image {
+      width: 200px; /* Adjust size as needed */
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      /* border: 4px solid plum; */
+      z-index: 2;
+    }
+    .floating-icon {
+      position: absolute;
+      font-size: 2.5rem; /* Size of the icons */
+      color: plum;
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 0.5rem;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      z-index: 3;
+      animation: orbit-3d 12s linear infinite;
+    }
+    .floating-icon:nth-child(2) { animation-delay: -2.4s; }
+    .floating-icon:nth-child(3) { animation-delay: -4.8s; }
+    .floating-icon:nth-child(4) { animation-delay: -7.2s; }
+    .floating-icon:nth-child(5) { animation-delay: -9.6s; }
+
+    @keyframes orbit-3d {
+      0% {
+        transform: rotateZ(0deg) translateY(120px) rotateZ(0deg) scale(1);
+        z-index: 3;
+      }
+      50% {
+        /* Move to the back, shrink, and go behind the avatar */
+        transform: rotateZ(180deg) translateY(120px) rotateZ(-180deg) scale(0.5);
+        z-index: 1;
+      }
+      100% {
+        /* Return to the front */
+        transform: rotateZ(360deg) translateY(120px) rotateZ(-360deg) scale(1);
+        z-index: 3;
+      }
+    }
+
+    @keyframes gentle-float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes orbit {
+      0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+      100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+    }
+
+    /* Responsive adjustments for avatar and text */
+    @media screen and (max-width: 992px) {
+      .typing-container {
+        text-align: center;
+        align-items: center;
+      }
+      .hero-section .row {
+        flex-direction: column-reverse; /* Stack avatar on top of text on mobile */
+      }
+      /* Adjust 3D orbit for smaller screens */
+      @keyframes orbit-3d {
+        0% {
+          transform: rotateZ(0deg) translateY(100px) rotateZ(0deg) scale(1);
+          z-index: 3;
+        }
+        50% {
+          transform: rotateZ(180deg) translateY(100px) rotateZ(-180deg) scale(0.5);
+          z-index: 1;
+        }
+        100% {
+          transform: rotateZ(360deg) translateY(100px) rotateZ(-360deg) scale(1);
+          z-index: 3;
+        }
+      }
+    }
+
+    /* Speed up the scroll-in animations */
+    .animate__fadeInUp, .animate__fadeInLeft, .animate__fadeInRight {
+      --animate-duration: 0.4s; /* Adjust animation speed */
+    }
+  </style>
+</head>
+<body>
+  <!-- Animated Shapes Background -->
+  <div class="shape shape-1"></div>
+  <div class="shape shape-2"></div>
+  <div class="shape shape-3"></div>
+  <div class="shape shape-4"></div>
+  <div class="shape shape-5"></div>
+
+  <div class="container mt-4">
+    
+    <!-- Navigation Tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="projects-tab" data-bs-toggle="tab" data-bs-target="#projects-tab-pane" type="button" role="tab" aria-controls="projects-tab-pane" aria-selected="false">My Works</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link d-none" id="about-tab" data-bs-toggle="tab" data-bs-target="#about-tab-pane" type="button" role="tab" aria-controls="about-tab-pane" aria-selected="false">About Me</button>
+      </li>
+    </ul>
+
+    <!-- Tab Content -->
+    <div class="tab-content" id="myTabContent">
+      <!-- Home Tab -->
+      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <section class="hero-section">
+          <div class="row justify-content-center align-items-center">
+            <div class="col-lg-6">
+              <div class="typing-container">
+                <h1 id="name-text" class="display-5 fw-bold typing-text">Merugu Akhila</h1>
+                <p id="role-text" class="lead typing-text fs-4">- Full Stack Web Developer</p>
+                <div class="mt-4"><button class="btn btn-outline-plum" onclick="showAboutTab()">About Me <i class="bi bi-arrow-right"></i></button></div>
+                <div class="social-links mt-4">
+                  <a href="https://github.com/AkhilaM-21" target="_blank" rel="noopener noreferrer" class="social-icon me-3" title="GitHub">
+                      <i class="bi bi-github"></i>
+                  </a>
+                  <a href="mailto:merugu.akhila21@gmail.com" class="social-icon me-3" title="Email">
+                      <i class="bi bi-envelope-fill"></i>
+                  </a>
+                  <a href="https://linkedin.com/in/akhila-m21" target="_blank" rel="noopener noreferrer" class="social-icon" title="LinkedIn">
+                      <i class="bi bi-linkedin"></i>
+                  </a>
+              </div>
+              </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+              <div class="avatar-container">
+                <!-- IMPORTANT: Replace 'path/to/your/avatar.png' with the actual path to your image -->
+                <img src="c-removebg-preview.png" alt="Coding Avatar" class="avatar-image">
+                <i class="floating-icon devicon-html5-plain"></i>
+                <i class="floating-icon devicon-css3-plain"></i>
+                <i class="floating-icon devicon-react-original"></i>
+                <i class="floating-icon devicon-express-original"></i>
+                <i class="floating-icon devicon-mysql-plain"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Projects Tab -->
+      <div class="tab-pane fade p-4" id="projects-tab-pane" role="tabpanel" aria-labelledby="projects-tab" tabindex="0">
+        <h2 class="text-center mb-4">Projects</h2>
+        <hr class="w-50 mx-auto mb-5 plum-line">
+
+        <!-- First Project with Side-by-Side Animation -->
+        <div class="row mb-5 align-items-stretch">
+          <!-- STC Project Card -->
+          <div class="col-lg-6 mb-4 mb-lg-0">
+            <div class="card p-3 w-100 h-100 shadow-sm borderr">
+              <h5>STC Employee Portal – Internal Management System</h5>
+              <p>Engineered a full-stack internal portal to streamline employee management, communication, and data tracking.</p>
+              <ul>
+                <li>Developed a multi-faceted attendance system with role-based reports, Google Sheets integration, and automated report generation.</li>
+                <li>Enhanced the real-time chat with channel and direct messaging, file sharing, message reactions, and a persistent notification system.</li>
+                <li>Implemented a unified authentication system and a comprehensive admin panel for user management, including profile editing and password resets.</li>
+                <li>Enhanced role-based access control (RBAC) to customize portal card visibility and implemented an automated announcement system with scheduled posts and birthday notifications.</li>
+                <li>Designed and integrated a scalable MongoDB backend for all features and successfully deployed the full-stack application on Vercel.</li>
+              </ul>
+              <div class="mt-auto pt-3">
+                <p class="mb-2"><b><i class="bi bi-code-slash"></i> Tech Stack:</b></p>
+                <p>
+                  <span class="badge tech-badge text-dark">React.js</span>
+                  <span class="badge tech-badge text-dark">FastAPI</span>
+                  <span class="badge tech-badge text-dark">MongoDB</span>
+                  <span class="badge tech-badge text-dark">Socket.IO</span>
+                  <span class="badge tech-badge text-dark">JWT</span>
+                </p>
+                <p><b><i class="bi bi-github"></i> GitHub:</b> <a href="https://github.com/AkhilaM-21/STC-Employee-Portal" target="_blank" rel="noopener noreferrer">STC Employee Portal</a></p>
+              </div>
+            </div>
+          </div>
+          <!-- Animation Container -->
+          <div class="col-lg-6 animation-wrapper">
+            <canvas id="particle-canvas" style="width: 100%; height: 100%;"></canvas>
+          </div>
+        </div>
+
+        <!-- Second Project with Side-by-Side Animation -->
+        <div class="row mb-5 align-items-stretch">
+          <!-- Agri Animation Container (on the left) -->
+          <div class="col-lg-6 animation-wrapper order-lg-1 order-2" id="agri-animation-container">
+            <canvas id="agri-canvas" style="width: 100%; height: 100%;"></canvas>
+          </div>
+          <!-- AgriAdvnZ Project Card (on the right) -->
+          <div class="col-lg-6 mb-4 mb-lg-0 order-lg-2 order-1">
+            <div class="card p-3 w-100 h-100 shadow-sm borderr">
+              <h5>AgriAdvnZ – The New Era of Agriculture</h5>
+              <p>Developed a full-stack educational platform designed to inform users about modern and advanced agricultural technologies.</p>
+              <ul>
+                <li>Implemented a secure user authentication system with JWT-based session management.</li>
+                <li>Crafted a fully responsive UI using EJS and Bootstrap 5.</li>
+                <li>Developed dedicated educational modules on modern farming.</li>
+                <li>Designed and implemented a relational MySQL database.</li>
+              </ul>
+              <div class="mt-auto pt-3">
+                <p class="mb-2"><b><i class="bi bi-code-slash"></i> Tech Stack:</b></p>
+                <p>
+                  <span class="badge tech-badge text-dark">Node.js</span>
+                  <span class="badge tech-badge text-dark">Express.js</span>
+                  <span class="badge tech-badge text-dark">EJS</span>
+                  <span class="badge tech-badge text-dark">MySQL</span>
+                  <span class="badge tech-badge text-dark">Bootstrap 5</span>
+                </p>
+                <p><b><i class="bi bi-github"></i> GitHub:</b> <a href="https://github.com/AkhilaM-21/AgriAdvanZ" target="_blank" rel="noopener noreferrer">AgriAdvanZ</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- About Me Tab -->
+      <div class="tab-pane fade p-4" id="about-tab-pane" role="tabpanel" aria-labelledby="about-tab" tabindex="0">
+        <h2 class="text-center mb-4">About Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <p class="lead" id="about-me-text">I'm a passionate developer, currently honing my skills as a <strong>Web Developer</strong> through an internship at <strong>Showtime</strong>. I thrive on solving complex problems and building intuitive, user-friendly web applications. I'm always eager to learn new technologies and contribute to innovative projects.</p>
+            </div>
+        </div>
+
+        <hr class="my-5">
+
+        <h3 class="text-center mb-4">My Skill Set</h3>
+        <div class="row g-4 justify-content-center text-center">
+            <!-- Skill Logos -->
+            <div class="col-auto skill-logo-container" title="JavaScript"><i class="devicon-javascript-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="React"><i class="devicon-react-original"></i></div>
+            <div class="col-auto skill-logo-container" title="Node.js"><i class="devicon-nodejs-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="Express"><i class="devicon-express-original"></i></div>
+            <div class="col-auto skill-logo-container" title="Python"><i class="devicon-python-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="FastAPI"><i class="devicon-fastapi-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="Java"><i class="devicon-java-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="HTML5"><i class="devicon-html5-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="CSS3"><i class="devicon-css3-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="Bootstrap"><i class="devicon-bootstrap-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="MySQL"><i class="devicon-mysql-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="MongoDB"><i class="devicon-mongodb-plain"></i></div>
+            <div class="col-auto skill-logo-container" title="Socket.IO"><i class="devicon-socketio-original"></i></div>
+        </div>
+
+        <hr class="my-5">
+
+        <h3 class="text-center mb-5">Education</h3>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow-sm p-4 education-card">
+                    <h5 class="fw-bold">B. Tech in Computer Science</h5>
+                    <p class="mb-1">Malla Reddy Institute of Engineering and Technology | JNTU, Hyderabad</p>
+                    <p class="text-muted">Score: 8.2/10 (2023)</p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card shadow-sm p-4 education-card">
+                    <h5 class="fw-bold">Intermediate (MPC)</h5>
+                    <p class="mb-1">Prathibha Junior College | TS Intermediate Board</p>
+                    <p class="text-muted">Score: 98.2% (2019)</p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card shadow-sm p-4 education-card">
+                    <h5 class="fw-bold">SSC</h5>
+                    <p class="mb-1">Tetra Hedron Residential School | TS SSC Board</p>
+                    <p class="text-muted">Score: 98% (2017)</p>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Particle Animation Script -->
+  <script id="particle-script"></script>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const tabEl = document.querySelectorAll('button[data-bs-toggle="tab"]');
+
+        // --- Custom Cursor Trail Logic ---
+        const trailCount = 15; // Number of trailing balls
+        const trails = [];
+        const coords = { x: 0, y: 0 };
+
+        for (let i = 0; i < trailCount; i++) {
+            const trail = document.createElement('div');
+            trail.className = 'trail';
+            document.body.appendChild(trail);
+            trails.push(trail);
+        }
+
+        window.addEventListener('mousemove', (e) => {
+            coords.x = e.clientX;
+            coords.y = e.clientY;
+        });
+
+        function animateTrails() {
+            let x = coords.x;
+            let y = coords.y;
+
+            trails.forEach((trail, index) => {
+                trail.style.left = x + 'px';
+                trail.style.top = y + 'px';
+                trail.style.transform = `scale(${(trailCount - index) / trailCount})`;
+                trail.style.opacity = (trailCount - index) / trailCount * 0.5;
+
+                const nextTrail = trails[index + 1] || trails[0];
+                x += (nextTrail.offsetLeft - x) * 0.4;
+                y += (nextTrail.offsetTop - y) * 0.4;
+            });
+
+            requestAnimationFrame(animateTrails);
+        }
+        animateTrails();
+        // --- End Custom Cursor Logic ---
+
+        const aboutTabPane = document.getElementById('about-tab-pane');
+        const worksTabPane = document.getElementById('projects-tab-pane');
+        const skillLogos = aboutTabPane.querySelectorAll('.skill-logo-container');
+        const educationCards = aboutTabPane.querySelectorAll('.education-card');
+        const aboutMeText = aboutTabPane.querySelector('#about-me-text');        
+        const projectCards = worksTabPane.querySelectorAll('.card');
+        const timelineItems = worksTabPane.querySelectorAll('.timeline-item');
+
+        // --- Particle Animation Logic ---
+        let animationLoaded = false;
+        const bodyEl = document.body;
+
+        tabEl.forEach(tab => {
+            tab.addEventListener('shown.bs.tab', event => {                
+                if (event.target.id === 'projects-tab') {
+                    // Animate project cards
+                    if (!animationLoaded) { // First time only: load the script
+                        const script = document.createElement('script');
+                        script.src = 'projects-animation.js';
+                        script.onload = () => {
+                            window.particleAnimator.init(); // Init after script is loaded
+                        };
+                        document.body.appendChild(script);
+                        animationLoaded = true;
+                    } else { // On subsequent clicks, just re-initialize
+                        window.particleAnimator.init();
+                    }
+                    bodyEl.classList.add('works-active');
+                } else {
+                    // When leaving the projects tab, destroy the animation to clean up
+                    if (animationLoaded && window.particleAnimator) {
+                        window.particleAnimator.destroy();
+                    }
+                    // Reset project timeline animation
+                    if (event.target.id !== 'home-tab') { // Don't remove for home tab initially
+                      bodyEl.classList.remove('works-active');
+                    }
+                }
+
+                if (event.target.id === 'home-tab') { bodyEl.classList.remove('works-active'); }
+            });
+        });
+
+        // --- Intersection Observer for Scroll Animations ---
+        const observerOptions = {
+            root: document.querySelector('.tab-content'), // Animate within the scrollable area
+            rootMargin: '0px',
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach((entry, index) => {
+                const target = entry.target;
+                // Determine animation class for timeline items
+                let animationClass = 'animate__fadeInUp';                
+                if (target.classList.contains('card')) {
+                    // For project and education cards, alternate the animation direction
+                    const isEven = parseInt(target.dataset.index) % 2 === 0;
+                    animationClass = isEven ? 'animate__fadeInLeft' : 'animate__fadeInRight';
+                }
+
+                if (entry.isIntersecting) {
+                    // Use a timeout to create a staggered effect for lists of items
+                    const delay = target.dataset.index ? parseInt(target.dataset.index) * 100 : 0;
+                    setTimeout(() => {
+                        target.style.opacity = 1;
+                        target.classList.add('animate__animated', animationClass);
+                    }, delay);
+                } else {
+                    // Reset the element when it scrolls out of view to allow re-animation
+                    target.style.opacity = 0;
+                    target.classList.remove('animate__animated', 'animate__fadeInUp', 'animate__fadeInLeft', 'animate__fadeInRight');
+                }
+            });
+        };
+
+        const scrollObserver = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Helper function to observe a group of elements with its own staggered index
+        const observeGroup = (elements) => {
+            elements.forEach((el, index) => {
+                el.style.opacity = 0; // Start all elements as invisible
+                el.dataset.index = index; // Staggering index is relative to its group
+                scrollObserver.observe(el);
+            });
+        };
+
+        // Observe each group of elements. The stagger delay will reset for each group.
+        observeGroup([aboutMeText]);
+        observeGroup(skillLogos);
+        observeGroup(educationCards);
+    });
+
+    function showAboutTab() {
+        const aboutTab = new bootstrap.Tab(document.querySelector('#about-tab'));
+        aboutTab.show();
+    }
+</script>
+</html>
